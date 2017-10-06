@@ -1,2 +1,2 @@
 # twitterBot
-testing a twitter bot with node
+A twitter bot built with nodeJS.
