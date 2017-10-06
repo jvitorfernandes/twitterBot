@@ -38,6 +38,22 @@ function followed(eventMsg){
 
 function dm(txt){
 
+	var params = {
+		user_id: 61541048,
+		text: "Mais uma DM!"
+	}
+
+	T.post("direct_messages/new", params, message_sent);
+
+	function message_sent(err, data, response){
+		if(err){
+			console.log("deu ruim");
+		}
+		else{
+			console.log("deu bom");
+			console.log(data);
+		}
+	}
 };
 
 function tweetIt(txt){
@@ -61,4 +77,4 @@ function tweetIt(txt){
 	}
 }
 
-// setInterval(tweetIt, 1000*60); //calls the tweetIt function every 60 seconds
+setInterval(dm, 1000*20); //calls the tweetIt function every 60 seconds
