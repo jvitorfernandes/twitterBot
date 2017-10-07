@@ -1,6 +1,5 @@
-class Bot {
+function Bot(){
 
-	constructor(){
 
 		var Twit = require('twit');
 		var config = require('./config'); //contains the object with api keys and tokens and etc
@@ -9,10 +8,9 @@ class Bot {
 		this.stream = this.T.stream('user'); //setting up a user stream
 
 
-	}
 
 	//get tweets that matches searchTerm
-	getTweets(searchTerm){a
+	this.getTweets = function(searchTerm){
 
 		var params = {
 			q: 'searchTerm', //example: 'banana since:2011-11-11'
@@ -30,19 +28,9 @@ class Bot {
 
 	};
 
-	//do something when someone follows
-	followed(eventMsg){
-
-		var name = eventMsg.source.name;
-		var screenName = eventMsg.source.screen_name;
-		var r = Math.floor(Math.random()*100);
-		this.sendDM(eventMsg.source.id, "Hi, " + name + "! Thanks for following!");
-
-	};
-
 
 	//send direct message to id 
-	sendDM(id, txt){
+	this.sendDM = function(id, txt){
 
 		var params = {
 			user_id: id,
@@ -57,15 +45,14 @@ class Bot {
 			}
 			else{
 				console.log("deu bom");
-				console.log(data);
 			}
 		}
 
-	};
+	}
 
 
 	//tweet something
-	tweetIt(txt){
+	this.tweetIt = function(txt){
 			
 		var tweet = {
 			status:  txt
@@ -85,7 +72,6 @@ class Bot {
 		}
 
 	};
-
 
 }
 
